@@ -23,7 +23,8 @@ export default function Home() {
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Age</th>
+                    <th>AccountNo</th>
+                    <th>Deposit</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +33,13 @@ export default function Home() {
                     Employees.map((item)=>{
                         return(
                         <tr>
-                            <td>{item.Name}</td>
-                            <td>{item.Age}</td>
+                            <td>{item.name}</td>
+                            <td>{item.accountNo}</td>
+                            <td>{item.deposit}</td>
                             <td>
+                                <Link to={'/edit'}>
                                 <Button onClick={()=> alert(item.id)}>Edit</Button>
+                                </Link>
                                 &nbsp;
                                 <Button onClick={()=> handleDelete(item.id)}>Delete</Button>
                             </td>
@@ -46,6 +50,9 @@ export default function Home() {
                 }
             </tbody>
         </Table>
+        <Link to={'/create'}>
+            <Button>Create</Button>
+        </Link>
     </div>
   )
 }
